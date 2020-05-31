@@ -1,9 +1,6 @@
-# Neighbours_package
+![logo](logo.png)
 
-
-![logo](/Neighbours_package/logo.png)
-
-
+<br />
 
 **Neighbours_package v2**
 
