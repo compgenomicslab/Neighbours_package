@@ -146,11 +146,11 @@ def clean_unigene(gmgc):
 
 def mongo_functional_find(GMGC, coll_clusters): #prueba al 350
         """ get functional information from mongo.clusters db for gmgc element"""
-        kegg_list = []
+        kegg_list = [] # store the keggs
+        Egg = [] # store the Eggnogs cogs
         GMGC_function = coll_clusters.find({"u":GMGC})
         GMGC_function_list =[]
         for element in GMGC_function:
-
                 kegg = element['K_P'] 
                 kegg = kegg.split(",")
 
@@ -163,7 +163,7 @@ def mongo_functional_find(GMGC, coll_clusters): #prueba al 350
                 #desc = element['desc']
                 Egg = element['OGs'].split(",")
                 
-                GMGC_function_list=[kegg_list, Egg]
+        GMGC_function_list=[kegg_list, Egg]
             
         return GMGC_function_list
 
@@ -294,7 +294,7 @@ def get_neigh_orf_with_cogs(cogs_organizacion_list):
 def print_results(argument, kegg_result, egg_result, list_of_neighbours_unigenes,input_unigene_file):
 	if argument == "-u":
 		print("#gmgc"+"\t"+
-			"query_keggs"+"\t"+
+			"query_cogs"+"\t"+
 			"subject_cogs"+"\t"+
 			"analysed_orfs"+"\t"+
 			"number_neigh_genes"+"\t"+
@@ -303,7 +303,7 @@ def print_results(argument, kegg_result, egg_result, list_of_neighbours_unigenes
 			"count_of_cogs"+"\t"+
 			"cog_conservation"+"\t"+
 			"hit_cog_percentage"+"\t"+
-		"cog_description"
+		        "cog_description"
 			)
 
 		print("\t".join(kegg_result[0][0]))
