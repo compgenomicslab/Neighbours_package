@@ -76,5 +76,5 @@ Example: neigh_graphic.py 2 000_000_005
 ```
 <br />
 
-`*number_of_neighbours_genes_to_display:*`  It controls the number of unigenes to display upstream and downstream of your target
+`number_of_neighbours_genes_to_display:`  It controls the number of unigenes to display upstream and downstream of your target
 unigene 
