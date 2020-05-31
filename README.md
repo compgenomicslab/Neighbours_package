@@ -4,7 +4,7 @@
 
 **Neighbours_package v2**
 
-This is the new package for neighbours analysis.
+This is the new package for gene neighbourhood analysis.
 The package contains two main scripts:
 
 A) neigh.py  <br />
