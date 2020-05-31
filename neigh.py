@@ -96,7 +96,7 @@ def neigh_analysis(gmgc_list,neighbours_range):
 		neighbours_genes= retrieve_neighbours_data(gmgc_orfs_cluster,neighbours_range) 
 		
 
-		count_for_list_of_unigenes = 0 #para  crear la lista de unigenes una sola vez
+		count_for_list_of_unigenes = 0 #Creates the unigenes list only one time 
 		for cog in ("kegg","Egg"):
 			cog_category = cog
 			count_for_list_of_unigenes +=1
@@ -109,7 +109,7 @@ def neigh_analysis(gmgc_list,neighbours_range):
 			number_neigh_with_cogs = cogs_assignation_list[3]
 			unigenes_functions_list = cogs_assignation_list[4]
 		
-			# numero de genes unigenes que tenein al menos un cog en sus neighbours
+			# number of genes that have at least one cog in his neighobours 
 			neigh_orf_with_cogs = get_neigh_orf_with_cogs(cogs_organization_list) 
 		
 
@@ -122,8 +122,8 @@ def neigh_analysis(gmgc_list,neighbours_range):
 					list_of_neigh_unigenes= [gmgc,"singleton"]
 
 			###
-			gmgc_functional = mongo_functional_find(gmgc,coll_clusters)# obtiene la informacion funcional del GMGC query
-			print(gmgc_functional)
+			gmgc_functional = mongo_functional_find(gmgc,coll_clusters)# retrieve functional information from GMGC query	 
+			
 			if cog_category == "kegg":
 				query_list = gmgc_functional[0]
 			else:
@@ -145,10 +145,10 @@ def neigh_analysis(gmgc_list,neighbours_range):
 			kegg_description_dict = {}
 			subject_cog_list = [] # store subject list of cog
 			subject_cog_dict = {} #almacenamos todos los kegg que pasen el porcentaje para compararlos con los query_kegg_list
-			for k,v in Count.items(): # v es el numero de veces que ha aparecido en ese cluster por vencidad dicha funcion
+			for k,v in Count.items(): # v is the number of time this function has been found in the neighbours genes 
 				cog = k
 				KEGG_count = str(v)
-				percentage = float(v/neigh_orf_with_cogs)*100 # calculamos el porcentaje sobre el numero de genes neighbours with keggs
+				percentage = float(v/neigh_orf_with_cogs)*100 # compute percentage of number of neighbours genes with cogs
 				percentage = ("{0:.2f}".format(percentage))
 
 				if float(percentage) >= percentage_cut_off: 
