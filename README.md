@@ -78,3 +78,7 @@ Example: neigh_graphic.py 2 000_000_005
 
 `number_of_neighbours_genes_to_display:`  It controls the number of unigenes to display upstream and downstream of your target
 unigene 
+
+graphication script compute all the different syntenies presente in that unigene clustrer. Thus only show uniques syntenies for every unigene cluster
+
+Highligted in grey appears the ORFs of the unigene cluster, in the central position. Neighbours genes appears in colors, yellowe for Keggs, and green for EGGnogs. In case there are not neighbours genes, these will marked as a red [X]. Functional description are below.
